@@ -9,7 +9,12 @@ import Dialog, {
   DialogContentText,
   DialogTitle
 } from "material-ui/Dialog";
-import AddIcon from 'material-ui-icons/Add';
+import AddIcon from "material-ui-icons/Add";
+const fabStyle = {
+  bottom: 20,
+  right: 20,
+  position: "fixed"
+};
 export default class FormDialog extends React.Component {
   state = {
     open: false
@@ -31,6 +36,7 @@ export default class FormDialog extends React.Component {
           color="primary"
           aria-label="add"
           onClick={this.handleClickOpen}
+          style={fabStyle}
         >
           <AddIcon />
         </Button>
@@ -38,14 +44,31 @@ export default class FormDialog extends React.Component {
           <DialogTitle>Subscribe</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Thêm số tiền
+              To subscribe to this website, please enter your email address
+              here. We will send updates occationally.
             </DialogContentText>
             <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Email Address"
+              label="Số tiền"
               type="email"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Ngày tháng"
+              type="date"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Tên"
+              type="text"
               fullWidth
             />
           </DialogContent>
@@ -54,7 +77,7 @@ export default class FormDialog extends React.Component {
               Cancel
             </Button>
             <Button onClick={this.handleRequestClose} color="primary">
-              Subscribe
+              Add Spending
             </Button>
           </DialogActions>
         </Dialog>

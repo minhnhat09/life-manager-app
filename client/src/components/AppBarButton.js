@@ -1,5 +1,3 @@
-// @flow weak
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
@@ -34,7 +32,7 @@ function AppBarButton(props) {
             <MenuIcon />
           </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
-            Title
+            App Chi tiêu
           </Typography>
           <Button color="contrast">Login</Button>
         </Toolbar>

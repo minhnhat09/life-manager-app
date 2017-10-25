@@ -19,7 +19,7 @@ class App extends Component {
       <div className="container">
         <BrowserRouter>
           <div>
-            <Header />
+            <AppBarButton />
             <Route exact path="/" component={Landing} />
             
             <Route exact path="/surveys" component={Dashboard} />
