@@ -1,12 +1,9 @@
-import React from 'react';
-
+import React from "react";
+import FloatingButton from "./FloatingButton";
 const Landing = () => {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>
-        Emaily!
-      </h1>
-      Collect feedback form your users
+    <div style={{ textAlign: "center" }}>
+      <FloatingButton />
     </div>
   );
 };
