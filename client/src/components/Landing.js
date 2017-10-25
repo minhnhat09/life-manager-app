@@ -1,9 +1,9 @@
 import React from "react";
-import FloatingButton from "./FloatingButton";
+import AddSpendingDialog from './AddSpendingDialog';
 const Landing = () => {
   return (
     <div style={{ textAlign: "center" }}>
-      <FloatingButton />
+      <AddSpendingDialog />
     </div>
   );
 };
