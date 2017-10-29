@@ -1,11 +1,6 @@
 import React from "react";
-import AddSpendingDialog from './AddSpendingDialog';
 const Landing = () => {
-  return (
-    <div style={{ textAlign: "center" }}>
-      <AddSpendingDialog />
-    </div>
-  );
+  return <div style={{ textAlign: "center" }}>Home</div>;
 };
 
 export default Landing;
