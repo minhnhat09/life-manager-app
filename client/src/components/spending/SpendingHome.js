@@ -11,7 +11,7 @@ class SpendingHome extends Component {
           name: "auchan",
           amount: 15,
           type: "cb giang",
-          date: "2001-01-2001"
+          date: "21-01-2001"
         }
       ]
     };
