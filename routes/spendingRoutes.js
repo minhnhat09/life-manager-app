@@ -24,13 +24,12 @@ module.exports = app => {
       amount,
       type,
       date: Date.now(),
-      _user: "107674749146417146383"
+      _user: req.user.id
     });
     console.log("spendingtosave", spendingToSave);
     try {
-      // await spendingToSave.save();
-      // res.send(spendingToSave);
-      new spendingToSave.save().then(spending => console.log(spending));
+      await spendingToSave.save();
+      res.send(spendingToSave);
     } catch (error) {
       res.status(422).send(error);
     }

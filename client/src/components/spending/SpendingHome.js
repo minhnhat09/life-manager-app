@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AddSpendingDialog from "./AddSpendingDialog";
 import SpendingList from "./SpendingList";
-
+import axios from "axios";
 class SpendingHome extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +23,12 @@ class SpendingHome extends Component {
     this.setState({
       spendings: [...this.state.spendings, spending]
     });
+    this.saveToDb(spending);
+  }
+
+  async saveToDb(spending) {
+    const res = await axios.post("/api/spendings", spending);
+    console.log(res);
   }
 
   render() {
