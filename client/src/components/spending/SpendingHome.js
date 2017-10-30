@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AddSpendingDialog from "./AddSpendingDialog";
 import SpendingList from "./SpendingList";
+import Button from "material-ui/Button";
 import axios from "axios";
 class SpendingHome extends Component {
   constructor(props) {
@@ -16,6 +17,11 @@ class SpendingHome extends Component {
       ]
     };
     this.onNewSpending = this.onNewSpending.bind(this);
+  }
+
+  async getSpendingsByUser() {
+    const res = await axios.get("/api/spendings");
+    console.log("getSpendingsByUser", res);
   }
 
   onNewSpending(spending) {
@@ -35,6 +41,7 @@ class SpendingHome extends Component {
     return (
       <div style={{ textAlign: "center" }}>
         <SpendingList spendings={this.state.spendings} />
+        <Button onClick={this.getSpendingsByUser}>Spending page </Button>
         <AddSpendingDialog onNewSpending={this.onNewSpending} />
       </div>
     );
