@@ -1,11 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Table, {
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow
-} from "material-ui/Table";
+import { TableCell, TableRow } from "material-ui/Table";
 
 const SpendingRow = ({ name, amount, type, date }) => (
   <TableRow>
