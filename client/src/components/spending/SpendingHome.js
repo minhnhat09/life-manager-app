@@ -15,12 +15,21 @@ class SpendingHome extends Component {
         }
       ]
     };
+    this.onNewSpending = this.onNewSpending.bind(this);
   }
+
+  onNewSpending(spending) {
+    console.log("on new spending", spending);
+    this.setState({
+      spendings: [...this.state.spendings, spending]
+    });
+  }
+
   render() {
     return (
       <div style={{ textAlign: "center" }}>
         <SpendingList spendings={this.state.spendings} />
-        <AddSpendingDialog />
+        <AddSpendingDialog onNewSpending={this.onNewSpending} />
       </div>
     );
   }
