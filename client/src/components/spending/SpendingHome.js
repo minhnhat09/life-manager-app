@@ -6,8 +6,9 @@ import Button from "material-ui/Button";
 // COMPONENTS
 import AddSpendingDialog from "./AddSpendingDialog";
 import SpendingList from "./SpendingList";
+import { CircularProgress } from "material-ui/Progress";
 // ACTIONS
-import { fetchSpendings } from "../../actions";
+import { fetchSpendings, addSpending } from "../../actions";
 
 class SpendingHome extends Component {
   constructor(props) {
@@ -25,20 +26,18 @@ class SpendingHome extends Component {
   }
 
   onNewSpending(spending) {
-    console.log("on new spending", spending);
-    this.saveToDb(spending);
-  }
-
-  async saveToDb(spending) {
-    const res = await axios.post("/api/spendings", spending);
-    console.log(res);
+    this.props.addSpending(spending);
+    // this.props.fetchSpendings();
   }
 
   render() {
     return (
       <div style={{ textAlign: "center" }}>
-        <SpendingList spendings={this.props.spendings} />
-        <Button onClick={this.getSpendingsByUser}>Spending page </Button>
+        {this.props.spendings ? (
+          <SpendingList spendings={this.props.spendings} />
+        ) : (
+          <CircularProgress size={50} />
+        )}
         <AddSpendingDialog onNewSpending={this.onNewSpending} />
       </div>
     );
@@ -47,4 +46,6 @@ class SpendingHome extends Component {
 const mapStateToProps = ({ spendings }) => {
   return { spendings };
 };
-export default connect(mapStateToProps, { fetchSpendings })(SpendingHome);
+export default connect(mapStateToProps, { fetchSpendings, addSpending })(
+  SpendingHome
+);
