@@ -69,7 +69,7 @@ class PersistentDrawer extends Component {
 
   render() {
     const { classes } = this.props;
-    const { root, appFrame, content, contentShift } = classes;
+    const { root, appFrame, content } = classes;
     const routes = [
       {
         path: "/spending",

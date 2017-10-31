@@ -1,22 +1,22 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { connect } from "react-redux";
+// MUI
+import Button from "material-ui/Button";
+// COMPONENTS
 import AddSpendingDialog from "./AddSpendingDialog";
 import SpendingList from "./SpendingList";
-import Button from "material-ui/Button";
-import axios from "axios";
+// ACTIONS
+import { fetchSpendings } from "../../actions";
+
 class SpendingHome extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      spendings: [
-        {
-          name: "auchan",
-          amount: 15,
-          type: "cb giang",
-          date: "21-01-2001"
-        }
-      ]
-    };
     this.onNewSpending = this.onNewSpending.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchSpendings();
   }
 
   async getSpendingsByUser() {
@@ -26,9 +26,6 @@ class SpendingHome extends Component {
 
   onNewSpending(spending) {
     console.log("on new spending", spending);
-    this.setState({
-      spendings: [...this.state.spendings, spending]
-    });
     this.saveToDb(spending);
   }
 
@@ -40,12 +37,14 @@ class SpendingHome extends Component {
   render() {
     return (
       <div style={{ textAlign: "center" }}>
-        <SpendingList spendings={this.state.spendings} />
+        <SpendingList spendings={this.props.spendings} />
         <Button onClick={this.getSpendingsByUser}>Spending page </Button>
         <AddSpendingDialog onNewSpending={this.onNewSpending} />
       </div>
     );
   }
 }
-
-export default SpendingHome;
+const mapStateToProps = ({ spendings }) => {
+  return { spendings };
+};
+export default connect(mapStateToProps, { fetchSpendings })(SpendingHome);
