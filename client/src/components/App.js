@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
-import Landing from "./Landing";
-import AppBarButton from "./AppBarButton";
+// import AppBarButton from "./AppBarButton";
 import "typeface-roboto";
 // COMPONENTS
 import SpendingHome from "./spending/SpendingHome";
+import PersistentDrawer from "./PersistentDrawer";
+// import Landing from "./Landing";
 
 class App extends Component {
   componentDidMount() {
@@ -18,9 +19,7 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <div>
-            <AppBarButton />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/spending" component={SpendingHome} />
+            <Route path="/" component={PersistentDrawer} />
           </div>
         </BrowserRouter>
       </div>
