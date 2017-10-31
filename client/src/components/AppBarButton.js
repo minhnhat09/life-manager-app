@@ -12,18 +12,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 const drawerWidth = 240;
 const styles = theme => ({
-  /* root: {
-    marginTop: theme.spacing.unit * 3,
-    width: "100%"
-  },
-  flex: {
-    flex: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  }, */
-
   root: {
     width: "100%",
     height: 430,

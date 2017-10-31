@@ -98,7 +98,7 @@ class PersistentDrawer extends Component {
             )}
           >
             {routes.map((route, index) => (
-              <Route exact path={route.path} component={route.component} />
+              <Route key={index} exact path={route.path} component={route.component} />
             ))}
           </main>
         </div>

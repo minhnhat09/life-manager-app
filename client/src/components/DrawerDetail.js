@@ -65,7 +65,7 @@ const DrawerDetail = props => {
         <Divider />
         <List>
           {links.map((link, index) => (
-            <Link to={link.to} className={notUnderline}>
+            <Link key={index} to={link.to} className={notUnderline}>
               <ListItem button>
                 <ListItemIcon>{link.icon}</ListItemIcon>
                 <ListItemText primary={link.primary} />

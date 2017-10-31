@@ -6,7 +6,9 @@ import Toolbar from "material-ui/Toolbar";
 import Typography from "material-ui/Typography";
 import IconButton from "material-ui/IconButton";
 import MenuIcon from "material-ui-icons/Menu";
-
+import Button from "material-ui/Button";
+// REDUX
+import { connect } from "react-redux";
 const drawerWidth = 240;
 const styles = theme => ({
   appBar: {
@@ -30,10 +32,34 @@ const styles = theme => ({
   },
   hide: {
     display: "none"
+  },
+  notUnderline: {
+    textDecoration: "none"
+  },
+  flex: {
+    flex: 1
   }
 });
+const renderContent = (auth, classes) => {
+  switch (auth) {
+    case null:
+      return;
+    case false:
+      return (
+        <a href="/auth/google" className={classes.notUnderline}>
+          <Button color="contrast">Login With Google</Button>
+        </a>
+      );
+    default:
+      return (
+        <a href="/api/logout" className={classes.notUnderline}>
+          <Button color="contrast">Logout</Button>
+        </a>
+      );
+  }
+};
 const AppBarHeader = props => {
-  const { classes, toggleDrawer, handleDrawerOpen } = props;
+  const { classes, toggleDrawer, handleDrawerOpen, auth } = props;
   const { menuButton, appBar, appBarShift, hide } = classes;
 
   return (
@@ -47,11 +73,18 @@ const AppBarHeader = props => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography type="title" color="inherit" noWrap>
+        <Typography type="title" color="inherit" className={classes.flex}>
           Admin Interface
         </Typography>
+        {renderContent(auth, classes)}
       </Toolbar>
     </AppBar>
   );
 };
-export default withStyles(styles, { withTheme: true })(AppBarHeader);
+
+const mapStateToProps = ({ auth }) => {
+  return { auth };
+};
+export default connect(mapStateToProps)(
+  withStyles(styles, { withTheme: true })(AppBarHeader)
+);
