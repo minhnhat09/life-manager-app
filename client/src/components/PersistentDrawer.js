@@ -4,22 +4,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 import classNames from "classnames";
-import Drawer from "material-ui/Drawer";
-import AppBar from "material-ui/AppBar";
-import Toolbar from "material-ui/Toolbar";
-import Typography from "material-ui/Typography";
-import Divider from "material-ui/Divider";
-import IconButton from "material-ui/IconButton";
-import MenuIcon from "material-ui-icons/Menu";
-import ChevronLeftIcon from "material-ui-icons/ChevronLeft";
-import ChevronRightIcon from "material-ui-icons/ChevronRight";
-import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
-import InboxIcon from "material-ui-icons/Inbox";
-import DraftsIcon from "material-ui-icons/Drafts";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 //COMPONENTS
-import AppBarButton from "./AppBarButton";
 import Landing from "./Landing";
+import DrawerDetail from "./DrawerDetail";
+import AppBarHeader from "./AppBarHeader";
 import SpendingHome from "./spending/SpendingHome";
 const drawerWidth = 240;
 
@@ -36,40 +25,6 @@ const styles = theme => ({
     display: "flex",
     width: "100%",
     height: "100%"
-  },
-  appBar: {
-    position: "absolute",
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20
-  },
-  hide: {
-    display: "none"
-  },
-  drawerPaper: {
-    position: "relative",
-    height: "100%",
-    width: drawerWidth
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: "0 8px",
-    ...theme.mixins.toolbar
   },
   content: {
     width: "100%",
@@ -113,89 +68,38 @@ class PersistentDrawer extends Component {
   };
 
   render() {
-    const { classes, theme, children } = this.props;
-
+    const { classes } = this.props;
+    const { root, appFrame, content, contentShift } = classes;
+    const routes = [
+      {
+        path: "/spending",
+        component: SpendingHome
+      },
+      {
+        path: "/landing",
+        component: Landing
+      }
+    ];
     return (
-      <div className={classes.root}>
-        <div className={classes.appFrame}>
-          <AppBar
-            className={classNames(
-              classes.appBar,
-              this.state.open && classes.appBarShift
-            )}
-          >
-            <Toolbar disableGutters={!this.state.open}>
-              <IconButton
-                color="contrast"
-                aria-label="open drawer"
-                onClick={this.handleDrawerOpen}
-                className={classNames(
-                  classes.menuButton,
-                  this.state.open && classes.hide
-                )}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography type="title" color="inherit" noWrap>
-                Admin Interface
-              </Typography>
-            </Toolbar>
-          </AppBar>
-
-          <Drawer
-            type="persistent"
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            open={this.state.open}
-          >
-            <div className={classes.drawerInner}>
-              <div className={classes.drawerHeader}>
-                <IconButton onClick={this.handleDrawerClose}>
-                  {theme.direction === "rtl" ? (
-                    <ChevronRightIcon />
-                  ) : (
-                    <ChevronLeftIcon />
-                  )}
-                </IconButton>
-              </div>
-              <Divider />
-              <List>
-                <Link to="/">
-                  <ListItem button>
-                    <ListItemIcon>
-                      <InboxIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Home" />
-                  </ListItem>
-                </Link>
-                <Link to="/spending">
-                  <ListItem button>
-                    <ListItemIcon>
-                      <DraftsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Spending" />
-                  </ListItem>
-                </Link>
-                <Link to="/landing">
-                  <ListItem button>
-                    <ListItemIcon>
-                      <DraftsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Spending" />
-                  </ListItem>
-                </Link>
-              </List>
-            </div>
-          </Drawer>
+      <div className={root}>
+        <div className={appFrame}>
+          <AppBarHeader
+            toggleDrawer={this.state.open}
+            handleDrawerOpen={this.handleDrawerOpen}
+          />
+          <DrawerDetail
+            toggleDrawer={this.state.open}
+            handleDrawerClose={this.handleDrawerClose}
+          />
           <main
             className={classNames(
-              classes.content,
+              content,
               this.state.open && classes.contentShift
             )}
           >
-            <Route exact path="/spending" component={SpendingHome} />
-            <Route exact path="/landing" component={Landing} />
+            {routes.map((route, index) => (
+              <Route exact path={route.path} component={route.component} />
+            ))}
           </main>
         </div>
       </div>

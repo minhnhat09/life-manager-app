@@ -5,7 +5,6 @@ import * as actions from "../actions";
 // import AppBarButton from "./AppBarButton";
 import "typeface-roboto";
 // COMPONENTS
-import SpendingHome from "./spending/SpendingHome";
 import PersistentDrawer from "./PersistentDrawer";
 // import Landing from "./Landing";
 

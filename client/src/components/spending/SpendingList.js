@@ -20,12 +20,11 @@ const styles = theme => ({
   }
 });
 
-const SpendingList = (props) => {
+const SpendingList = props => {
   const { classes, spendings } = props;
   return (
-
     <Paper className={classes.root}>
-    <Table className={classes.table}>
+      <Table className={classes.table}>
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
@@ -35,9 +34,11 @@ const SpendingList = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-        {spendings.map((spending, i) => <SpendingRow key={i} {...spending} />)}
+          {spendings.map((spending, i) => (
+            <SpendingRow key={i} {...spending} />
+          ))}
         </TableBody>
-        </Table>
+      </Table>
     </Paper>
   );
 };
