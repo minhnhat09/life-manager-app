@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-// MUI
-import Button from "material-ui/Button";
 // COMPONENTS
 import AddSpendingDialog from "./AddSpendingDialog";
 import SpendingList from "./SpendingList";
 import { CircularProgress } from "material-ui/Progress";
 // ACTIONS
-import { fetchSpendings, addSpending } from "../../actions";
+import { fetchSpendings, addSpending, deleteSpending } from "../../actions";
 
 class SpendingHome extends Component {
   constructor(props) {
     super(props);
     this.onNewSpending = this.onNewSpending.bind(this);
+    this.onRemoveSpending = this.onRemoveSpending.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchSpendings();
+    console.log(this.props);
   }
 
   async getSpendingsByUser() {
@@ -27,14 +27,20 @@ class SpendingHome extends Component {
 
   onNewSpending(spending) {
     this.props.addSpending(spending);
-    // this.props.fetchSpendings();
+  }
+
+  onRemoveSpending(index) {
+    this.props.deleteSpending(index);
   }
 
   render() {
     return (
       <div style={{ textAlign: "center" }}>
         {this.props.spendings ? (
-          <SpendingList spendings={this.props.spendings} />
+          <SpendingList
+            spendings={this.props.spendings}
+            onRemoveSpending={this.onRemoveSpending}
+          />
         ) : (
           <CircularProgress size={50} />
         )}
@@ -46,6 +52,8 @@ class SpendingHome extends Component {
 const mapStateToProps = ({ spendings }) => {
   return { spendings };
 };
-export default connect(mapStateToProps, { fetchSpendings, addSpending })(
-  SpendingHome
-);
+export default connect(mapStateToProps, {
+  fetchSpendings,
+  addSpending,
+  deleteSpending
+})(SpendingHome);

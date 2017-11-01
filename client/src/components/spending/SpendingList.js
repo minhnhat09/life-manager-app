@@ -21,7 +21,7 @@ const styles = theme => ({
 });
 
 const SpendingList = props => {
-  const { classes, spendings } = props;
+  const { classes, spendings, onRemoveSpending = f => f } = props;
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -31,11 +31,17 @@ const SpendingList = props => {
             <TableCell>Amount</TableCell>
             <TableCell>Type</TableCell>
             <TableCell>Date</TableCell>
+            <TableCell>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {spendings.map((spending, i) => (
-            <SpendingRow key={i} {...spending} />
+            <SpendingRow
+              key={i}
+              {...spending}
+              index={i}
+              onRemoveSpending={onRemoveSpending}
+            />
           ))}
         </TableBody>
       </Table>
