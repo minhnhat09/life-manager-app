@@ -77,7 +77,7 @@ class RemoveSpendingDialog extends Component {
             <Button onClick={this.handleRequestClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={(this.onRemoveSpending)} color="primary" autoFocus>
+            <Button onClick={this.onRemoveSpending} color="primary" autoFocus>
               Confirm
             </Button>
           </DialogActions>

@@ -30,7 +30,7 @@ const styles = theme => ({
     width: "100%",
     marginLeft: -drawerWidth,
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: "white",
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
@@ -98,7 +98,12 @@ class PersistentDrawer extends Component {
             )}
           >
             {routes.map((route, index) => (
-              <Route key={index} exact path={route.path} component={route.component} />
+              <Route
+                key={index}
+                exact
+                path={route.path}
+                component={route.component}
+              />
             ))}
           </main>
         </div>

@@ -1,5 +1,10 @@
 import axios from "axios";
-import { FETCH_USER, FETCH_SPENDINGS, REMOVE_SPENDING } from "./types";
+import {
+  FETCH_USER,
+  FETCH_SPENDINGS,
+  REMOVE_SPENDING,
+  ADD_SPENDING
+} from "./types";
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/current_user");
@@ -19,7 +24,8 @@ export const fetchSpendings = () => async dispatch => {
 };
 
 export const addSpending = spending => async dispatch => {
-  const addSpending = await axios.post("/api/spending", spending);
-  const res = await axios.get("/api/spendings");
-  dispatch({ type: FETCH_SPENDINGS, payload: res.data });
+  const res = await axios.post("/api/spending", spending);
+  if (res.status === 200) {
+    dispatch({ type: ADD_SPENDING, payload: res.data });
+  }
 };
