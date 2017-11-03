@@ -19,10 +19,6 @@ import red from "material-ui/colors/red";
 // ICONS
 import Delete from "material-ui-icons/Delete";
 import Brush from "material-ui-icons/Brush";
-// REDUX
-import { connect } from "react-redux";
-// ACTIONS
-import { fetchSpendings, deleteSpending } from "../../actions";
 
 const styles = theme => ({
   icon: {
@@ -39,32 +35,29 @@ const styles = theme => ({
 class RemoveSpendingDialog extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    this.onRemoveSpending = this.onRemoveSpending.bind(this);
+    this.handleRequestClose = this.handleRequestClose.bind(this);
   }
   state = {
     open: false
   };
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleRequestClose = () => {
-    this.setState({ open: false });
-  };
-  onRemoveSpending = () => {
+  onRemoveSpending() {
     this.props.onRemoveSpending(this.props.index);
-    this.setState({ open: false });
-  };
+  }
 
+  handleRequestClose() {
+    this.setState({ open: false });
+  }
   render() {
+    const { icon, iconHover } = this.props.classes;
     return (
       <div>
         <Delete
-          onClick={this.handleClickOpen}
-          className={classNames(
-            this.props.classes.icon,
-            this.props.classes.iconHover
-          )}
+          onClick={() =>
+            this.setState({
+              open: true
+            })}
+          className={classNames(icon, iconHover)}
         />
         <Dialog open={this.state.open} onRequestClose={this.handleRequestClose}>
           <DialogTitle>{"Delete this spending ?"}</DialogTitle>
@@ -87,41 +80,46 @@ class RemoveSpendingDialog extends Component {
   }
 }
 
-const SpendingRow = props => {
-  console.log(props);
-  const {
-    name,
-    amount,
-    type,
-    date,
-    classes,
-    _id,
-    onRemoveSpending = f => f
-  } = props;
-  const { icon } = classes;
-  return (
-    <TableRow>
-      <TableCell>
-        <Typography>{name}</Typography>
-      </TableCell>
-      <TableCell>{amount}</TableCell>
-      <TableCell>{type}</TableCell>
-      <TableCell>{date}</TableCell>
-      <TableCell>
-        <IconButton>
-          <Brush className={icon} />
-        </IconButton>
-        <IconButton>
-          <RemoveSpendingDialog
-            classes={classes}
-            index={_id}
-            onRemoveSpending={onRemoveSpending}
-          />
-        </IconButton>
-      </TableCell>
-    </TableRow>
-  );
-};
+class SpendingRow extends Component {
+  state = {
+    open: false
+  };
+  render() {
+    const {
+      name,
+      amount,
+      type,
+      date,
+      classes,
+      _id,
+      onRemoveSpending = f => f
+    } = this.props;
+    const { icon } = classes;
+    return (
+      <TableRow>
+        <TableCell>
+          <Typography>{name}</Typography>
+        </TableCell>
+        <TableCell>{amount}</TableCell>
+        <TableCell>{type}</TableCell>
+        <TableCell>{date}</TableCell>
+        <TableCell>
+          <IconButton>
+            <Brush className={icon} />
+          </IconButton>
+          <IconButton>
+            <RemoveSpendingDialog
+              classes={classes}
+              index={_id}
+              onOpenDialog={this.state.open}
+              onRemoveSpending={onRemoveSpending}
+            />
+          </IconButton>
+        </TableCell>
+      </TableRow>
+    );
+  }
+}
 
 SpendingRow.propTypes = {
   name: PropTypes.string.isRequired,
