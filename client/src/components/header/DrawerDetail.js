@@ -15,6 +15,7 @@ import FilterListIcon from "material-ui-icons/FilterList";
 import FlightTakeoffIcon from "material-ui-icons/FlightTakeoff";
 import ExploreIcon from "material-ui-icons/Explore";
 import ChatIcon from "material-ui-icons/Chat";
+import BookIcon from "material-ui-icons/Book";
 
 
 
@@ -67,6 +68,11 @@ const links = [
     to: "/news",
     primary: "News",
     icon: <ChatIcon />
+  },
+  {
+    to: "/book-review",
+    primary: "Book Reviews",
+    icon: <BookIcon />
   }
 ];
 

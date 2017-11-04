@@ -1,4 +1,4 @@
-import initialState from "../initialState";
+import initialState from "./mock/bookInitialState";
 export default function(state = initialState, action) {
   switch (action.type) {
     default:

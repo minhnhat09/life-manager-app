@@ -13,6 +13,7 @@ import BlogHome from "./blog/BlogHome";
 import ProjectHome from "./project/ProjectHome";
 import MotivationHome from "./motivation/MotivationHome";
 import NewsHome from "./news/NewsHome";
+import BookReviewHome from "./book-review/BookReviewHome";
 
 const drawerWidth = 240;
 
@@ -95,6 +96,10 @@ class PersistentDrawer extends Component {
       {
         path: "/news",
         component: NewsHome
+      },
+      {
+        path: "/book-review",
+        component: BookReviewHome
       }
     ];
     return (
