@@ -21,7 +21,7 @@ const styles = theme => ({
   root: {
     width: "100%",
     height: "100%",
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 0,
     zIndex: 1,
     overflow: "hidden"
   },
@@ -35,7 +35,7 @@ const styles = theme => ({
     width: "100%",
     marginLeft: -drawerWidth,
     flexGrow: 1,
-    backgroundColor: "white",
+    backgroundColor: "black",
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,

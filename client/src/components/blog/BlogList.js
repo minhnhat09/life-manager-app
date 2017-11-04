@@ -1,5 +1,4 @@
 import React from "react";
-import SpendingRow from "./SpendingRow";
 import Table, {
   TableBody,
   TableCell,
@@ -9,6 +8,9 @@ import Table, {
 import Paper from "material-ui/Paper";
 import { withStyles } from "material-ui/styles";
 import Typography from "material-ui/Typography";
+// COMPONENTS
+import BlogRow from "./BlogRow";
+
 const styles = theme => ({
   root: {
     width: "100%",
@@ -21,30 +23,22 @@ const styles = theme => ({
 });
 
 const BlogList = props => {
-  const { classes, spendings, onRemoveSpending = f => f } = props;
-  if (spendings.length > 0) {
-    let total = 0;
-    spendings.map(spending => (total += spending.amount));
+  const { classes, blogs } = props;
+  if (blogs) {
     return (
       <Paper className={classes.root}>
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Type</TableCell>
+              <TableCell>Titre</TableCell>
+              <TableCell>Like</TableCell>
               <TableCell>Date</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {spendings.map((spending, i) => (
-              <SpendingRow
-                key={i}
-                {...spending}
-                index={i}
-                onRemoveSpending={onRemoveSpending}
-              />
+            {blogs.map((blog, i) => (
+              <BlogRow key={i} {...blog} />
             ))}
           </TableBody>
         </Table>

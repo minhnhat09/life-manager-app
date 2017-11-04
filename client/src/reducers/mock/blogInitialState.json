@@ -2,6 +2,7 @@
   {
     "title": "Introduction to react",
     "tags": ["Javascript", "React"],
+    "like": 15,
     "content": "",
     "createDate": "",
     "updateDate": ""
@@ -9,6 +10,7 @@
   {
     "title": "Advanced react",
     "tags": ["Javascript", "React", "Redux"],
+    "like": 15,
     "content": "",
     "createDate": "",
     "updateDate": ""

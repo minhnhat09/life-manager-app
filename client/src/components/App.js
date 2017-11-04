@@ -5,8 +5,6 @@ import * as actions from "../actions";
 import "typeface-roboto";
 // COMPONENTS
 import PersistentDrawer from "./PersistentDrawer";
-// import Landing from "./Landing";
-
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
