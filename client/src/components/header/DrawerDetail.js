@@ -6,9 +6,18 @@ import IconButton from "material-ui/IconButton";
 import ChevronLeftIcon from "material-ui-icons/ChevronLeft";
 import ChevronRightIcon from "material-ui-icons/ChevronRight";
 import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
+
+import { Link } from "react-router-dom";
+// ICONS
 import InboxIcon from "material-ui-icons/Inbox";
 import DraftsIcon from "material-ui-icons/Drafts";
-import { Link } from "react-router-dom";
+import FilterListIcon from "material-ui-icons/FilterList";
+import FlightTakeoffIcon from "material-ui-icons/FlightTakeoff";
+import ExploreIcon from "material-ui-icons/Explore";
+import ChatIcon from "material-ui-icons/Chat";
+
+
+
 const drawerWidth = 240;
 const styles = theme => ({
   drawerPaper: {
@@ -38,6 +47,26 @@ const links = [
     to: "/spending",
     primary: "Spending",
     icon: <DraftsIcon />
+  },
+  {
+    to: "/blog",
+    primary: "Blog post",
+    icon: <FilterListIcon />
+  },
+  {
+    to: "/project",
+    primary: "Project Management",
+    icon: <ExploreIcon />
+  },
+  {
+    to: "/motivation",
+    primary: "Motivation Boost",
+    icon: <FlightTakeoffIcon />
+  },
+  {
+    to: "/news",
+    primary: "News",
+    icon: <ChatIcon />
   }
 ];
 

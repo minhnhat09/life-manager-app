@@ -6,10 +6,14 @@ import { withStyles } from "material-ui/styles";
 import classNames from "classnames";
 import { Route } from "react-router-dom";
 //COMPONENTS
-import Landing from "./header/Landing";
 import DrawerDetail from "./header/DrawerDetail";
 import AppBarHeader from "./header/AppBarHeader";
 import SpendingHome from "./spending/SpendingHome";
+import BlogHome from "./blog/BlogHome";
+import ProjectHome from "./project/ProjectHome";
+import MotivationHome from "./motivation/MotivationHome";
+import NewsHome from "./news/NewsHome";
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -76,8 +80,21 @@ class PersistentDrawer extends Component {
         component: SpendingHome
       },
       {
-        path: "/landing",
-        component: Landing
+        path: "/blog",
+        component: BlogHome
+      },
+      {
+        path: "/project",
+        component: ProjectHome
+      }
+      ,
+      {
+        path: "/motivation",
+        component: MotivationHome
+      },
+      {
+        path: "/news",
+        component: NewsHome
       }
     ];
     return (
