@@ -6,9 +6,9 @@ import { withStyles } from "material-ui/styles";
 import classNames from "classnames";
 import { Route } from "react-router-dom";
 //COMPONENTS
-import Landing from "./Landing";
-import DrawerDetail from "./DrawerDetail";
-import AppBarHeader from "./AppBarHeader";
+import Landing from "./header/Landing";
+import DrawerDetail from "./header/DrawerDetail";
+import AppBarHeader from "./header/AppBarHeader";
 import SpendingHome from "./spending/SpendingHome";
 const drawerWidth = 240;
 

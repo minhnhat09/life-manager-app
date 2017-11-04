@@ -39,6 +39,8 @@ export default class AddSpendingDialog extends Component {
 
   submit(e) {
     e.preventDefault();
+    const dd = this.state._date.valueAsDate;
+    console.log(this.state._date.valueAsDate.toLocaleString());
     this.props.onNewSpending({
       name: this.state._name.value,
       amount: Number(this.state._amount.value),
@@ -85,7 +87,7 @@ export default class AddSpendingDialog extends Component {
                 id="amount"
                 inputRef={input => this.setState({ _amount: input })}
                 label="Amount"
-                defaultValue={amount}
+                defaultValue={amount.toString()}
                 type="number"
                 fullWidth
               />
@@ -127,7 +129,7 @@ export default class AddSpendingDialog extends Component {
 
 AddSpendingDialog.defaultProps = {
   name: "Auchan",
-  amount: "11",
+  amount: 11,
   type: "cb minh",
   date: "10/30/2017"
 };

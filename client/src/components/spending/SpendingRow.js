@@ -42,6 +42,7 @@ class RemoveSpendingDialog extends Component {
     open: false
   };
   onRemoveSpending() {
+    this.setState({ open: false });
     this.props.onRemoveSpending(this.props.index);
   }
 

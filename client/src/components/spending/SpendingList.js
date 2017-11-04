@@ -23,6 +23,8 @@ const styles = theme => ({
 const SpendingList = props => {
   const { classes, spendings, onRemoveSpending = f => f } = props;
   if (spendings.length > 0) {
+    let total = 0;
+    spendings.map(spending => (total += spending.amount));
     return (
       <Paper className={classes.root}>
         <Table className={classes.table}>
@@ -44,6 +46,13 @@ const SpendingList = props => {
                 onRemoveSpending={onRemoveSpending}
               />
             ))}
+            <TableRow>
+              <TableCell />
+              <TableCell>{total}</TableCell>
+              <TableCell />
+              <TableCell />
+              <TableCell />
+            </TableRow>
           </TableBody>
         </Table>
       </Paper>
