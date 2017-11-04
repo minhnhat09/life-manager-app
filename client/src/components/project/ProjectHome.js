@@ -12,6 +12,10 @@ const styles = theme => ({
     padding: 16,
     textAlign: "center",
     color: theme.palette.text.secondary
+  },
+  tabs:{
+    top: 0,
+    position: "fixed"
   }
 });
 
@@ -20,7 +24,7 @@ class ProjectHome extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <ProjectTabs />
+        <ProjectTabs className={classes.tabs}/>
       </div>
     );
   }

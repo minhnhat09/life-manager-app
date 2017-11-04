@@ -62,7 +62,7 @@ const renderContent = (auth, classes) => {
 const AppBarHeader = props => {
   const { classes, toggleDrawer, handleDrawerOpen, auth } = props;
   const { menuButton, appBar, appBarShift, hide } = classes;
-
+  console.log(props);
   return (
     <AppBar className={classNames(appBar, toggleDrawer && appBarShift)}>
       <Toolbar disableGutters={!toggleDrawer}>
