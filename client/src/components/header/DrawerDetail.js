@@ -16,15 +16,15 @@ import FlightTakeoffIcon from "material-ui-icons/FlightTakeoff";
 import ExploreIcon from "material-ui-icons/Explore";
 import ChatIcon from "material-ui-icons/Chat";
 import BookIcon from "material-ui-icons/Book";
-
-
+import { cyan } from "material-ui/colors";
+const primary = cyan[400];
 
 const drawerWidth = 240;
 const styles = theme => ({
   drawerPaper: {
     position: "relative",
-    height: "100%",
-    width: drawerWidth
+    width: drawerWidth,
+    backgroundColor: primary
   },
   drawerHeader: {
     display: "flex",
@@ -102,8 +102,13 @@ const DrawerDetail = props => {
           {links.map((link, index) => (
             <Link key={index} to={link.to} className={notUnderline}>
               <ListItem button>
-                <ListItemIcon>{link.icon}</ListItemIcon>
-                <ListItemText primary={link.primary} />
+                <ListItemIcon style={{ color: "white" }}>
+                  {link.icon}
+                </ListItemIcon>
+                <ListItemText
+                  style={{ color: "white" }}
+                  primary={link.primary}
+                />
               </ListItem>
             </Link>
           ))}

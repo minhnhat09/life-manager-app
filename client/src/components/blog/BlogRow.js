@@ -4,7 +4,7 @@ import { withStyles } from "material-ui/styles";
 import Typography from "material-ui/Typography";
 import Button from "material-ui/Button";
 import { pink, green, teal, red, cyan } from "material-ui/colors";
-
+import BlogDetail from "./BlogDetail";
 const styles = theme => ({
   root: {
     width: "100%",
@@ -30,9 +30,7 @@ const BlogRow = props => {
       <TableCell />
       <TableCell />
       <TableCell>
-        <Button raised color="accent" className={classes.button}>
-          Modifier
-        </Button>
+        <BlogDetail />
       </TableCell>
     </TableRow>
   );

@@ -14,13 +14,15 @@ import ProjectHome from "./project/ProjectHome";
 import MotivationHome from "./motivation/MotivationHome";
 import NewsHome from "./news/NewsHome";
 import BookReviewHome from "./book-review/BookReviewHome";
+import { blue, purple } from 'material-ui/colors';
 
+const primary = blue[900]; // #F44336
+const accent = purple['A200']; // #E040FB
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
     width: "100%",
-    height: "100%",
     marginTop: theme.spacing.unit * 0,
     zIndex: 1,
     overflow: "hidden"
@@ -29,23 +31,20 @@ const styles = theme => ({
     position: "relative",
     display: "flex",
     width: "100%",
-    height: "100%"
   },
   content: {
     width: "100%",
     marginLeft: -drawerWidth,
     flexGrow: 1,
-    backgroundColor: "black",
+    backgroundColor: "white",
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    height: "calc(100% - 56px)",
     marginTop: 56,
     [theme.breakpoints.up("sm")]: {
       content: {
-        height: "calc(100% - 64px)",
         marginTop: 64
       }
     }
