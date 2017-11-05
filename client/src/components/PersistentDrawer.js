@@ -27,7 +27,7 @@ const styles = theme => ({
   appFrame: {
     position: "relative",
     display: "flex",
-    width: "100%",
+    width: "100%"
   },
   content: {
     width: "100%",
@@ -54,7 +54,20 @@ const styles = theme => ({
     })
   }
 });
-
+const RouteWithSubRoutes = route => (
+  <Route
+    path={route.path}
+    render={props => (
+      // pass the sub-routes down to keep nesting
+      <route.component {...props} routes={route.routes} />
+    )}
+  />
+);
+export const Whoops404 = () => (
+  <div>
+    <h1>Whoops, route not found</h1>
+  </div>
+);
 class PersistentDrawer extends Component {
   state = {
     open: false
@@ -82,9 +95,22 @@ class PersistentDrawer extends Component {
       },
       {
         path: "/project",
-        component: ProjectHome
-      }
-      ,
+        component: ProjectHome,
+        routes: [
+          {
+            path: "/todo",
+            component: Whoops404
+          },
+          {
+            path: "/doing",
+            component: ProjectHome
+          },
+          {
+            path: "/done",
+            component: ProjectHome
+          }
+        ]
+      },
       {
         path: "/motivation",
         component: MotivationHome
@@ -115,14 +141,9 @@ class PersistentDrawer extends Component {
               this.state.open && classes.contentShift
             )}
           >
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                exact
-                path={route.path}
-                component={route.component}
-              />
-            ))}
+            {routes.map((route, index) => {
+              return <RouteWithSubRoutes exact key={index} {...route} />;
+            })}
           </main>
         </div>
       </div>

@@ -38,7 +38,9 @@ const BlogList = props => {
           </TableHead>
           <TableBody>
             {blogs.map((blog, i) => (
-              <BlogRow key={i} {...blog} />
+              <BlogRow key={i} {...blog}>
+                {classes.root}
+              </BlogRow>
             ))}
           </TableBody>
         </Table>

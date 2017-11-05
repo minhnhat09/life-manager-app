@@ -2,10 +2,11 @@ import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import bookReducer from "./bookReducer";
 import spendingReducer from "./spendingReducer";
-import blogReducer from "./blogReducer";
+import projectManagementReducer from "./projectManagementReducer";
 export default combineReducers({
   auth: authReducer,
   books: bookReducer,
   spendings: spendingReducer,
-  blogs: blogReducer
+  blogs: blogReducer,
+  projects: projectManagementReducer
 });

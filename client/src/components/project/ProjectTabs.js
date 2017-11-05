@@ -9,10 +9,16 @@ import BottomNavigation, {
 import RestoreIcon from "material-ui-icons/Restore";
 import FavoriteIcon from "material-ui-icons/Favorite";
 import LocationOnIcon from "material-ui-icons/LocationOn";
+import { Link } from "react-router-dom";
 
+// COMPONENTS
+import ProjectTodo from "./ProjectTodo";
+import ProjectDoing from "./ProjectDoing";
+import ProjectDone from "./ProjectDone";
 const styles = {
   root: {
-    width: "100%"
+    width: "100%",
+    backgroundColor: "red"
   }
 };
 
@@ -26,25 +32,39 @@ class ProjectTabs extends Component {
     this.setState({ value });
   };
 
+  renderContent() {
+    switch (this.state.value) {
+      case 0:
+        return <ProjectTodo />;
+        break;
+      case 1:
+        return <ProjectDoing />;
+        break;
+      case 2:
+        return <ProjectDone />;
+        break;
+
+      default:
+        break;
+    }
+  }
+
   render() {
     const { classes } = this.props;
     const { value } = this.state;
 
     return (
-      <BottomNavigation
-        value={value}
-        onChange={this.handleChange}
-        showLabels
-        className={classes.root}
-      >
-        <BottomNavigationButton label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationButton label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationButton label="Nearby" icon={<LocationOnIcon />} />
-      </BottomNavigation>
+      <div className={classes.root}>
+        <BottomNavigation value={value} onChange={this.handleChange} showLabels>
+          <BottomNavigationButton label="To do" icon={<RestoreIcon />} />
+          <BottomNavigationButton label="Doing" icon={<FavoriteIcon />} />
+          <BottomNavigationButton label="Done" icon={<LocationOnIcon />} />
+        </BottomNavigation>
+        {this.renderContent()}
+      </div>
     );
   }
 }
-
 ProjectTabs.propTypes = {
   classes: PropTypes.object.isRequired
 };

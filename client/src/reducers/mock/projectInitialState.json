@@ -1,0 +1,37 @@
+[
+  {
+    "project": "create to do list app",
+    "description": "create to do list app with react and node",
+    "motivation": "",
+    "tasks": [
+      {
+        "name": "create node express server",
+        "status": "created",
+        "description": "",
+        "subTasks": [
+          {
+            "name": "create node server",
+            "comment": "",
+            "status": "finished",
+            "expectLoad": "1h",
+            "realLoad": "1h"
+          },
+          {
+            "name": "create mongodb server",
+            "comment": "",
+            "status": "finished",
+            "expectLoad": "1h",
+            "realLoad": "1h"
+          },
+          {
+            "name": "connect node to mongo",
+            "comment": "",
+            "status": "finished",
+            "expectLoad": "1h",
+            "realLoad": "1h"
+          }
+        ]
+      }
+    ]
+  }
+]
