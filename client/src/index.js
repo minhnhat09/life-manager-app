@@ -41,7 +41,7 @@ const theme = createMuiTheme({
     danger: "orange"
   }
 });
-console.log(theme);
+// console.log(theme);
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>

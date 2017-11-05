@@ -26,7 +26,6 @@ export default class AddSpendingDialog extends Component {
       _type: "",
       _date: ""
     };
-    console.log(this.state);
   }
 
   handleClickOpen = () => {

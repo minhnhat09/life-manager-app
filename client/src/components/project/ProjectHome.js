@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ProjectTabs from "./ProjectTabs";
-import Paper from "material-ui/Paper";
 import { withStyles } from "material-ui/styles";
 const styles = theme => ({
   root: {

@@ -19,7 +19,7 @@ const styles = theme => ({
 });
 
 const BlogRow = props => {
-  console.log(props);
+  console.log(props, this.state);
   const { title } = props;
   return (
     <TableRow>
@@ -29,7 +29,7 @@ const BlogRow = props => {
       <TableCell />
       <TableCell />
       <TableCell>
-        <BlogDetail />
+        <BlogDetail blogPost={props}/>
       </TableCell>
     </TableRow>
   );

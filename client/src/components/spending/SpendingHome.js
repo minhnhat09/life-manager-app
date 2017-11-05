@@ -16,12 +16,10 @@ class SpendingHome extends Component {
 
   componentDidMount() {
     this.props.fetchSpendings();
-    console.log(this.props);
   }
 
   async getSpendingsByUser() {
     const res = await axios.get("/api/spendings");
-    console.log("getSpendingsByUser", res);
   }
 
   onNewSpending(spending) {

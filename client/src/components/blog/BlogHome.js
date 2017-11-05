@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import BlogList from "./BlogList";
 class BlogHome extends Component {
   render() {
-    console.log("blogs", this.props);
     return (
       <div>
         <BlogList blogs={this.props.blogs} />

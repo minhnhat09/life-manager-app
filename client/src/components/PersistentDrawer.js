@@ -14,7 +14,6 @@ import ProjectHome from "./project/ProjectHome";
 import MotivationHome from "./motivation/MotivationHome";
 import NewsHome from "./news/NewsHome";
 import BookReviewHome from "./book-review/BookReviewHome";
-import { blue, purple } from 'material-ui/colors';
 
 const drawerWidth = 240;
 
