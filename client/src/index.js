@@ -6,7 +6,7 @@ import reduxThunk from "redux-thunk";
 
 import App from "./components/App";
 import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
-import { pink, green, teal, red, cyan, orange } from "material-ui/colors";
+import { red, cyan } from "material-ui/colors";
 import reducers from "./reducers";
 const consoleMessages = store => next => action => {
   let result;

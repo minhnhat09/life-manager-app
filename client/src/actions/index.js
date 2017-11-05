@@ -3,7 +3,8 @@ import {
   FETCH_USER,
   FETCH_SPENDINGS,
   REMOVE_SPENDING,
-  ADD_SPENDING
+  ADD_SPENDING,
+  LOADING_SPENDING
 } from "./types";
 
 export const fetchUser = () => async dispatch => {
@@ -19,6 +20,9 @@ export const deleteSpending = index => async dispatch => {
 };
 
 export const fetchSpendings = () => async dispatch => {
+  dispatch({
+    type: LOADING_SPENDING
+  });
   const res = await axios.get("/api/spendings");
   dispatch({ type: FETCH_SPENDINGS, payload: res.data });
 };

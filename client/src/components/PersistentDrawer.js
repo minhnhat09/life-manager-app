@@ -16,8 +16,6 @@ import NewsHome from "./news/NewsHome";
 import BookReviewHome from "./book-review/BookReviewHome";
 import { blue, purple } from 'material-ui/colors';
 
-const primary = blue[900]; // #F44336
-const accent = purple['A200']; // #E040FB
 const drawerWidth = 240;
 
 const styles = theme => ({

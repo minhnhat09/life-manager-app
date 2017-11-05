@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 // COMPONENTS
 import AddSpendingDialog from "./AddSpendingDialog";
 import SpendingList from "./SpendingList";
-import { CircularProgress } from "material-ui/Progress";
 // ACTIONS
 import { fetchSpendings, addSpending, deleteSpending } from "../../actions";
 
@@ -36,14 +35,10 @@ class SpendingHome extends Component {
   render() {
     return (
       <div style={{ textAlign: "center" }}>
-        {this.props.spendings ? (
-          <SpendingList
-            spendings={this.props.spendings}
-            onRemoveSpending={this.onRemoveSpending}
-          />
-        ) : (
-          <CircularProgress size={50} />
-        )}
+        <SpendingList
+          spendings={this.props.spendings}
+          onRemoveSpending={this.onRemoveSpending}
+        />
         <AddSpendingDialog onNewSpending={this.onNewSpending} />
       </div>
     );

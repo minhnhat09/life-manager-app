@@ -2,9 +2,8 @@ import React from "react";
 import { TableCell, TableRow } from "material-ui/Table";
 import { withStyles } from "material-ui/styles";
 import Typography from "material-ui/Typography";
-import Button from "material-ui/Button";
-import { pink, green, teal, red, cyan } from "material-ui/colors";
 import BlogDetail from "./BlogDetail";
+
 const styles = theme => ({
   root: {
     width: "100%",
@@ -21,7 +20,7 @@ const styles = theme => ({
 
 const BlogRow = props => {
   console.log(props);
-  const { classes, title } = props;
+  const { title } = props;
   return (
     <TableRow>
       <TableCell>

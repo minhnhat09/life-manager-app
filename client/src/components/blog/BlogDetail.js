@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 import Button from "material-ui/Button";
 import Dialog from "material-ui/Dialog";
-import List, { ListItem, ListItemText } from "material-ui/List";
-import Divider from "material-ui/Divider";
+import List, { ListItem } from "material-ui/List";
 import AppBar from "material-ui/AppBar";
 import Toolbar from "material-ui/Toolbar";
 import IconButton from "material-ui/IconButton";
@@ -46,12 +45,16 @@ class BlogDetail extends Component {
   };
 
   onContentChange = name => input => {
+    console.log(this.state);
     this.setState({ [name]: input.target.value });
+  };
+
+  submit = () => {
+    console.log(this.state);
   };
 
   render() {
     const { classes } = this.props;
-    let contentValue;
     return (
       <div>
         <Button raised color="accent" onClick={this.handleClickOpen}>
@@ -75,8 +78,8 @@ class BlogDetail extends Component {
               <Typography type="title" color="inherit" className={classes.flex}>
                 Sound
               </Typography>
-              <Button color="contrast" onClick={this.handleRequestClose}>
-                save
+              <Button color="contrast" onClick={this.submit}>
+                Save
               </Button>
             </Toolbar>
           </AppBar>
@@ -91,6 +94,7 @@ class BlogDetail extends Component {
                     label="Title"
                     type="text"
                     fullWidth
+                    onChange={this.onContentChange("title")}
                   />
                 </ListItem>
                 <ListItem>
@@ -98,8 +102,9 @@ class BlogDetail extends Component {
                     autoFocus
                     margin="dense"
                     id="name"
-                    label="Title"
+                    label="Tag"
                     type="text"
+                    onChange={this.onContentChange("tag")}
                     fullWidth
                   />
                 </ListItem>
@@ -111,7 +116,7 @@ class BlogDetail extends Component {
                     label="Content"
                     type="text"
                     multiline
-                    rows="10"
+                    rows="20"
                     fullWidth
                     onChange={this.onContentChange("content")}
                   />

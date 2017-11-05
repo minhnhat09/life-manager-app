@@ -1,9 +1,12 @@
 import {
   FETCH_SPENDINGS,
   ADD_SPENDING,
-  REMOVE_SPENDING
+  REMOVE_SPENDING,
+  LOADING_SPENDING
 } from "../actions/types";
-export default function(state = [], action) {
+import { combineReducers } from "redux";
+
+export const listSpendings = (state = [], action) => {
   switch (action.type) {
     case FETCH_SPENDINGS:
       return action.payload;
@@ -14,4 +17,18 @@ export default function(state = [], action) {
     default:
       return state;
   }
-}
+};
+export const loadingSpending = (state = false, action) => {
+  switch (action.type) {
+    case LOADING_SPENDING:
+      return true;
+    case FETCH_SPENDINGS:
+      return false;
+    default:
+      return state;
+  }
+};
+export default combineReducers({
+  loadingSpending,
+  listSpendings
+});
