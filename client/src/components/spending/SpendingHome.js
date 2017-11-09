@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { connect } from "react-redux";
 // COMPONENTS
 import AddSpendingDialog from "./AddSpendingDialog";
@@ -16,10 +15,6 @@ class SpendingHome extends Component {
 
   componentDidMount() {
     this.props.fetchSpendings();
-  }
-
-  async getSpendingsByUser() {
-    const res = await axios.get("/api/spendings");
   }
 
   onNewSpending(spending) {

@@ -9,7 +9,6 @@ import BottomNavigation, {
 import RestoreIcon from "material-ui-icons/Restore";
 import FavoriteIcon from "material-ui-icons/Favorite";
 import LocationOnIcon from "material-ui-icons/LocationOn";
-import { Link } from "react-router-dom";
 
 // COMPONENTS
 import ProjectTodo from "./ProjectTodo";
@@ -35,13 +34,10 @@ class ProjectTabs extends Component {
     switch (this.state.value) {
       case 0:
         return <ProjectTodo />;
-        break;
       case 1:
         return <ProjectDoing />;
-        break;
       case 2:
         return <ProjectDone />;
-        break;
       default:
         break;
     }

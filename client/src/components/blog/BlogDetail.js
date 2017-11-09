@@ -107,7 +107,7 @@ class BlogDetail extends Component {
   };
   render() {
     const { classes } = this.props;
-    const { chip, appBar, flex } = classes;
+    const { appBar, flex } = classes;
     return (
       <div>
         <Button raised color="accent" onClick={this.handleClickOpen}>
