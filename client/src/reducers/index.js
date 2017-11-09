@@ -3,6 +3,7 @@ import authReducer from "./authReducer";
 import bookReducer from "./bookReducer";
 import spendingReducer from "./spendingReducer";
 import projectManagementReducer from "./projectManagementReducer";
+import blogReducer from "./blogReducer";
 export default combineReducers({
   auth: authReducer,
   books: bookReducer,

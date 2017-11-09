@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-const ProjectTodo = () => (
-  <div>
-    <h1>Todo</h1>
-  </div>
-);
+import CardToDo from "./CardTodo";
+const ProjectTodo = () => <CardToDo />;
 export default ProjectTodo;

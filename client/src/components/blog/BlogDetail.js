@@ -14,9 +14,11 @@ import Slide from "material-ui/transitions/Slide";
 import TextField from "material-ui/TextField";
 import Grid from "material-ui/Grid";
 import Chip from "material-ui/Chip";
+import { teal } from "material-ui/colors";
 // Markdown
 import ReactMarkdown from "react-markdown";
 
+const colorChip = teal["A100"];
 const styles = theme => ({
   appBar: {
     position: "relative"
@@ -25,7 +27,8 @@ const styles = theme => ({
     flex: 1
   },
   chip: {
-    margin: theme.spacing.unit / 2
+    margin: theme.spacing.unit / 2,
+    backgroundColor: colorChip
   }
 });
 

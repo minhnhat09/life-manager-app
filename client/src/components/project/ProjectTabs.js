@@ -17,8 +17,7 @@ import ProjectDoing from "./ProjectDoing";
 import ProjectDone from "./ProjectDone";
 const styles = {
   root: {
-    width: "100%",
-    backgroundColor: "red"
+    width: "100%"
   }
 };
 
@@ -43,7 +42,6 @@ class ProjectTabs extends Component {
       case 2:
         return <ProjectDone />;
         break;
-
       default:
         break;
     }
