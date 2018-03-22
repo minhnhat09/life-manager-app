@@ -23,7 +23,7 @@ module.exports = app => {
   });
 
 
-  app.delete("/api/spending/:index", async(req, res) => {
+  app.delete("/api/spending/:index", async (req, res) => {
     const idSpending = req.params.index;
     console.log(req.params, idSpending);
     try {
