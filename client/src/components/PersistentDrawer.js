@@ -15,7 +15,7 @@ import MotivationHome from "./motivation/MotivationHome";
 import NewsHome from "./news/NewsHome";
 import BookReviewHome from "./book-review/BookReviewHome";
 
-const drawerWidth = 240;
+const drawerWidth = 0;
 
 const styles = theme => ({
   root: {
@@ -47,7 +47,6 @@ const styles = theme => ({
     }
   },
   contentShift: {
-    marginLeft: 0,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
@@ -83,7 +82,7 @@ class PersistentDrawer extends Component {
 
   render() {
     const { classes } = this.props;
-    const { root, appFrame, content } = classes;
+    const { root, appFrame, content, contentShift } = classes;
     const routes = [
       {
         path: "/spending",
@@ -137,8 +136,7 @@ class PersistentDrawer extends Component {
           />
           <main
             className={classNames(
-              content,
-              this.state.open && classes.contentShift
+              content, this.state.open && contentShift
             )}
           >
             {routes.map((route, index) => {

@@ -99,7 +99,7 @@ const DrawerDetail = props => {
         <Divider />
         <List>
           {links.map((link, index) => (
-            <Link key={index} to={link.to} className={notUnderline}>
+            <Link  onClick={handleDrawerClose} key={index} to={link.to} className={notUnderline}>
               <ListItem button>
                 <ListItemIcon style={{ color: "white" }}>
                   {link.icon}

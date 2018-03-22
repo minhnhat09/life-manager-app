@@ -20,8 +20,8 @@ const styles = theme => ({
     })
   },
   appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: -drawerWidth,
+    width: `calc(100% + ${drawerWidth}px)`,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen
