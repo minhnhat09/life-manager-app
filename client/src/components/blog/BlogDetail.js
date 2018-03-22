@@ -110,7 +110,7 @@ class BlogDetail extends Component {
     const { appBar, flex } = classes;
     return (
       <div>
-        <Button raised color="accent" onClick={this.handleClickOpen}>
+        <Button raised="true" color="secondary" onClick={this.handleClickOpen}>
           Modify
         </Button>
         <Dialog
@@ -122,7 +122,7 @@ class BlogDetail extends Component {
           <AppBar className={appBar}>
             <Toolbar>
               <IconButton
-                color="contrast"
+                color="primary"
                 onClick={this.handleRequestClose}
                 aria-label="Close"
               >

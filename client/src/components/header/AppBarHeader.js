@@ -66,7 +66,7 @@ const AppBarHeader = props => {
     <AppBar className={classNames(appBar, toggleDrawer && appBarShift)}>
       <Toolbar disableGutters={!toggleDrawer}>
         <IconButton
-          color="contrast"
+          color="default"
           aria-label="open drawer"
           onClick={handleDrawerOpen}
           className={classNames(menuButton, toggleDrawer && hide)}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 import classNames from "classnames";
+import moment from 'moment';
 // COMPONENTS
 import { TableCell, TableRow } from "material-ui/Table";
 import IconButton from "material-ui/IconButton";
@@ -95,6 +96,7 @@ class SpendingRow extends Component {
       _id,
       onRemoveSpending = f => f
     } = this.props;
+    
     const { icon } = classes;
     return (
       <TableRow>
@@ -103,7 +105,7 @@ class SpendingRow extends Component {
         </TableCell>
         <TableCell>{amount}</TableCell>
         <TableCell>{type}</TableCell>
-        <TableCell>{date}</TableCell>
+        <TableCell>{moment(date).format('DD/MM/YYYY')}</TableCell>
         <TableCell>
           <IconButton>
             <Brush className={icon} />

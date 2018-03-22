@@ -22,7 +22,6 @@ const primary = cyan[400];
 const drawerWidth = 240;
 const styles = theme => ({
   drawerPaper: {
-    position: "relative",
     width: drawerWidth,
     backgroundColor: primary
   },

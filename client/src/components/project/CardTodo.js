@@ -36,10 +36,10 @@ const CardTodo = props => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button dense color="primary">
+          <Button color="primary">
             Share
           </Button>
-          <Button dense color="primary">
+          <Button color="primary">
             Learn More
           </Button>
         </CardActions>

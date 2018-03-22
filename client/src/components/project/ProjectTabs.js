@@ -3,9 +3,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
-import BottomNavigation, {
-  BottomNavigationButton
-} from "material-ui/BottomNavigation";
+import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
 import RestoreIcon from "material-ui-icons/Restore";
 import FavoriteIcon from "material-ui-icons/Favorite";
 import LocationOnIcon from "material-ui-icons/LocationOn";
@@ -50,9 +48,9 @@ class ProjectTabs extends Component {
     return (
       <div className={classes.root}>
         <BottomNavigation value={value} onChange={this.handleChange} showLabels>
-          <BottomNavigationButton label="To do" icon={<RestoreIcon />} />
-          <BottomNavigationButton label="Doing" icon={<FavoriteIcon />} />
-          <BottomNavigationButton label="Done" icon={<LocationOnIcon />} />
+          <BottomNavigationAction label="To do" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Doing" icon={<FavoriteIcon />} />
+          <BottomNavigationAction label="Done" icon={<LocationOnIcon />} />
         </BottomNavigation>
         {this.renderContent()}
       </div>
