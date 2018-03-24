@@ -1,6 +1,7 @@
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
-import TableList from "views/TableList/TableList.jsx";
+import TableList from "views/TableList/TableList";
+import SpendingHome from "views/Spending/SpendingHome";
 import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
@@ -23,6 +24,13 @@ const appRoutes = [
     navbarName: "Material Dashboard",
     icon: Dashboard,
     component: DashboardPage
+  },
+  {
+    path: "/spending",
+    sidebarName: "Spending Home",
+    navbarName: "Spending Home",
+    icon: ContentPaste,
+    component: SpendingHome
   },
   {
     path: "/user",

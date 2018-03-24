@@ -49,7 +49,7 @@ class Notifications extends React.Component {
             </A>{" "}
             and styled by{" "}
             <A target="_blank" href="https://www.creative-tim.com/">
-              Creative Tim
+              admin interface
             </A>. Please checkout the{" "}
             <A href="#pablo" target="_blank">
               full documentation
