@@ -7,14 +7,36 @@ import { fetchSpendings } from "../../actions";
 import SpendingList from './SpendingList';
 
 class SpendingHome extends Component {
-    componentDidMount() {
-        this.props.fetchSpendings();
+    constructor(props) {
+        super(props);
+        this.state = {
+            spendings: {
+                listSpendings: []
+            }
+        }
+    }
+    async componentDidMount() {
+        await this.props.fetchSpendings();
+        this.setState({
+            spendings: this.props.spendings
+        });
+    }
+    onRemove = (i) => {
+        const listRemove = this.state.spendings.listSpendings;
+        listRemove.splice(i, 1);
+        this.setState({
+            spendings: {
+                listSpendings: listRemove
+            }
+        });
+
     }
     render() {
         return (
             <div>
                 <SpendingList
-                    spendings={this.props.spendings}
+                    spendings={this.state.spendings}
+                    onRemove={this.onRemove}
                 />
             </div>
         );

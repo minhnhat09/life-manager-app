@@ -1,10 +1,10 @@
 import React from "react";
 import { Grid } from "material-ui";
 
-import { RegularCard, Table, ItemGrid } from "components";
+import { RegularCard, TableWithAction, ItemGrid } from "components";
 
 const SpendingList = props => {
-    const { spendings } = props;
+    const { spendings, onRemove } = props;
     const { listSpendings } = spendings;
     const listRender = []
     listSpendings.map(s => listRender.push(Object.values(s)));
@@ -15,10 +15,11 @@ const SpendingList = props => {
                     cardTitle="Spending table"
                     cardSubtitle="Here is a subtitle for this table"
                     content={
-                        <Table
+                        <TableWithAction
                             tableHeaderColor="primary"
-                            tableHead={["Name", "Amount", "Type", "Payment", "Date"]}
+                            tableHead={["Name", "Amount", "Type", "Payment", "Date", "Action"]}
                             tableData={listRender}
+                            onRemove={onRemove}
                         />
                     }
                 />

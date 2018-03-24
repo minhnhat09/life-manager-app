@@ -6,7 +6,7 @@ import ChartCard from "./Cards/ChartCard.jsx";
 import ProfileCard from "./Cards/ProfileCard.jsx";
 import RegularCard from "./Cards/RegularCard.jsx";
 import StatsCard from "./Cards/StatsCard.jsx";
-import TasksCard from "./Cards/TasksCard.jsx";
+import TasksCard from "./Cards/TasksCard";
 
 // ##############################
 // // // CustomButtons
@@ -57,13 +57,14 @@ import SnackbarContent from "./Snackbar/SnackbarContent.jsx";
 // // // Table
 // #############################
 
-import Table from "./Table/Table.jsx";
+import Table from "./Table/Table";
+import TableWithAction from "./Table/TableWithAction";
 
 // ##############################
 // // // Tasks
 // #############################
 
-import Tasks from "./Tasks/Tasks.jsx";
+import Tasks from "./Tasks/Tasks";
 
 // ##############################
 // // // Typography
@@ -106,6 +107,7 @@ export {
   SnackbarContent,
   // Table
   Table,
+  TableWithAction,
   // Tasks
   Tasks,
   // Typography
