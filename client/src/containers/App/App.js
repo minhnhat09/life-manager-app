@@ -8,9 +8,9 @@ import { withStyles } from "material-ui";
 
 import { Header, Footer, Sidebar } from "components";
 
-import appRoutes from "routes/app.jsx";
+import appRoutes from "routes/app";
 
-import appStyle from "variables/styles/appStyle.jsx";
+import appStyle from "variables/styles/appStyle";
 
 import image from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";

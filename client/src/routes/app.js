@@ -1,11 +1,12 @@
-import DashboardPage from "views/Dashboard/Dashboard.jsx";
-import UserProfile from "views/UserProfile/UserProfile.jsx";
+import DashboardPage from "views/Dashboard/Dashboard";
+import MainControl from "views/MainControl/MainControl";
+import UserProfile from "views/UserProfile/UserProfile";
 import TableList from "views/TableList/TableList";
 import SpendingHome from "views/Spending/SpendingHome";
-import Typography from "views/Typography/Typography.jsx";
-import Icons from "views/Icons/Icons.jsx";
-import Maps from "views/Maps/Maps.jsx";
-import NotificationsPage from "views/Notifications/Notifications.jsx";
+import Typography from "views/Typography/Typography";
+import Icons from "views/Icons/Icons";
+import Maps from "views/Maps/Maps";
+import NotificationsPage from "views/Notifications/Notifications";
 
 import {
   Dashboard,
@@ -24,6 +25,13 @@ const appRoutes = [
     navbarName: "Material Dashboard",
     icon: Dashboard,
     component: DashboardPage
+  },
+  {
+    path: "/maincontrol",
+    sidebarName: "Main Control",
+    navbarName: "Main Control",
+    icon: Dashboard,
+    component: MainControl
   },
   {
     path: "/spending",

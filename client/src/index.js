@@ -5,7 +5,7 @@ import { Router, Route, Switch } from "react-router-dom";
 
 import "assets/css/material-dashboard-react.css";
 
-import indexRoutes from "routes/index.jsx";
+import indexRoutes from "routes/index";
 
 // React redux
 import { Provider } from "react-redux";
