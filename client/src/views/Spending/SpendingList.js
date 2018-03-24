@@ -2,9 +2,9 @@ import React from "react";
 import { Grid } from "material-ui";
 
 import { RegularCard, TableWithAction, ItemGrid } from "components";
-
+import { Button } from 'components';
 const SpendingList = props => {
-    const { spendings, onRemove } = props;
+    const { spendings, onRemove, openForm } = props;
     const { listSpendings } = spendings;
     const listRender = []
     listSpendings.map(s => listRender.push(Object.values(s)));
@@ -22,6 +22,7 @@ const SpendingList = props => {
                             onRemove={onRemove}
                         />
                     }
+                    footer={<Button color="primary" onClick={openForm}>Add Spending</Button>}
                 />
             </ItemGrid>
         </Grid>

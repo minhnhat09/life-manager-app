@@ -19,7 +19,7 @@ import IconButton from "./CustomButtons/IconButton.jsx";
 // // // CustomInput
 // #############################
 
-import CustomInput from "./CustomInput/CustomInput.jsx";
+import CustomInput from "./CustomInput/CustomInput";
 
 // ##############################
 // // // Footer
