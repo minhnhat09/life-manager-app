@@ -3,8 +3,8 @@ import {
   FETCH_USER,
   FETCH_SPENDINGS,
   REMOVE_SPENDING,
+  // LOADING_SPENDING
   ADD_SPENDING,
-  LOADING_SPENDING
 } from "./types";
 
 export const fetchUser = () => async dispatch => {

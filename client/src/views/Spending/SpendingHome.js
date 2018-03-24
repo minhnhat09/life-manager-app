@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Grid } from "material-ui";
 import { connect } from "react-redux";
 
-import { RegularCard, Table, ItemGrid } from "components";
 // ACTIONS
 import { fetchSpendings } from "../../actions";
+// COMPONENTS
+import SpendingList from './SpendingList';
 
 class SpendingHome extends Component {
     componentDidMount() {
@@ -12,28 +12,12 @@ class SpendingHome extends Component {
     }
     render() {
         return (
-            <Grid container>
-                <ItemGrid xs={12} sm={12} md={12}>
-                    <RegularCard
-                        cardTitle="Spending table"
-                        cardSubtitle="Here is a subtitle for this table"
-                        content={
-                            <Table
-                                tableHeaderColor="primary"
-                                tableHead={["Name", "Amount", "Type", "Date", "Action"]}
-                                tableData={[
-                                    ["Dakota Rice", "10", "Đi chợ lindle", "$36,738"],
-                                    ["Dakota Rice", "10", "Đi chợ lindle", "$36,738"],
-                                    ["Dakota Rice", "10", "Đi chợ lindle", "$36,738"],
-                                    ["Dakota Rice", "10", "Đi chợ lindle", "$36,738"],
-                                ]}
-                            />
-                        }
-                    />
-                </ItemGrid>
-            </Grid>
+            <div>
+                <SpendingList
+                    spendings={this.props.spendings}
+                />
+            </div>
         );
-
     }
 }
 
