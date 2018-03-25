@@ -65,9 +65,11 @@ const SpendingForm = props => {
 function validate(values) {
   const errors = {};
 
-  if (!values['name']) {
-    errors['name'] = 'You must provide a value';
-  }
+  SpendingFormFields.map(({ name }) => {
+    if (!values[name]) {
+      errors[name] = 'You must provide a value';
+    }
+  });
   return errors;
 }
 
