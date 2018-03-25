@@ -10,6 +10,7 @@ class SpendingHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      formShowed: false,
       spendings: {
         listSpendings: []
       }
@@ -31,6 +32,7 @@ class SpendingHome extends Component {
     });
   };
 
+
   openForm = () => {
     this.setState({
       ...this.state,
@@ -44,10 +46,14 @@ class SpendingHome extends Component {
       formShowed: false
     });
   };
-
+  onSpendingSubmit = (e) => {
+    e.preventDefault();
+    console.log('object', e);
+  }
   render() {
     if (this.state.formShowed) {
-      return <SpendingForm returnToList={this.returnToList} />;
+      return <SpendingForm returnToList={this.returnToList} 
+      />;
     } else {
       return (
         <SpendingList
@@ -60,7 +66,8 @@ class SpendingHome extends Component {
   }
 }
 
-const mapStateToProps = ({ spendings }) => {
+const mapStateToProps = ({ spendings, form }) => {
+  console.log(form);
   return { spendings };
 };
 export default connect(mapStateToProps, {

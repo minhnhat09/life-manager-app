@@ -20,6 +20,7 @@ import IconButton from "./CustomButtons/IconButton";
 // #############################
 
 import CustomInput from "./CustomInput/CustomInput";
+import CustomInputForm from "./CustomInput/CustomInputForm";
 
 // ##############################
 // // // Footer
@@ -93,6 +94,7 @@ export {
   IconButton,
   // CustomInput
   CustomInput,
+  CustomInputForm,
   // Footer
   Footer,
   // Grid
