@@ -13,13 +13,14 @@ const SpendingForm = props => {
   }
   const renderFields = () => {
     console.log(SpendingFormFields);
-    return SpendingFormFields.map(({ name, type, label }) => {
+    return SpendingFormFields.map(({ name, type, label, options }) => {
       return (
         <Grid container key={name}>
           <ItemGrid xs={12} sm={12} md={12}>
             <Field
               component={CustomInputForm}
               type={type}
+              options={options}
               name={name}
               labelText={label}
               formControlProps={{
@@ -31,7 +32,6 @@ const SpendingForm = props => {
       );
     });
   };
-
   return (
     <div>
       <Grid container>
@@ -76,5 +76,10 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: 'spendingForm',
-  destroyOnUnmount: false
+  initialValues: {
+    purchase: 'John Doe',
+    price: '11',
+    payment: '11',
+    datePurchase: Date.now()
+  }
 })(SpendingForm);

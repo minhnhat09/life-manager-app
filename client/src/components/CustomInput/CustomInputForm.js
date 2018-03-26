@@ -17,7 +17,8 @@ const CustomInputForm = ({ ...props }) => {
     input,
     success,
     meta: { error, touched },
-    type
+    type,
+    options
   } = props;
   console.log('custom input', props);
   const errorCombined = error && touched;
@@ -57,13 +58,14 @@ const CustomInputForm = ({ ...props }) => {
             id={id}
             {...input}
             type={type}
+            onBlur={() => input.onBlur(input.value)}
           >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {
+              options.map(({ value, label }) => {
+                return (<MenuItem key={value} value={value}>{label}</MenuItem>);
+              })
+            }
+
           </Select>) :
           (<Input
             classes={{
