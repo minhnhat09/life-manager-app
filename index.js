@@ -6,6 +6,7 @@ const keys = require("./config/keys");
 const bodyParser = require("body-parser");
 require("./models/User");
 require("./models/Spending");
+require("./models/Book");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI);
@@ -26,6 +27,7 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app);
 require("./routes/spendingRoutes")(app);
+require("./routes/bookRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
